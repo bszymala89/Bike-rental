@@ -30,6 +30,7 @@ if option == 1:
 elif option == 2:
     print("[1] Save Bike List")
     print("[2] Load Bike List")
+    print("[3] See Bike List")
     option = int(input("Enter Option: "))
 
     if option == 1:
@@ -40,3 +41,8 @@ elif option == 2:
         for el in bikeRentalShop.bikelist:
             i += 1
             print("[" + str(i) + "] " + str(el))
+    elif option == 3:
+        i = 0
+        for el in bikeRentalShop.bikelist:
+            i += 1
+            print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id))
