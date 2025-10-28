@@ -1,0 +1,19 @@
+{
+    "bicycles": [
+        {
+            "id": 1,
+            "model": "Trek mtb 1",
+            "isAvailable": true
+        },
+        {
+            "id": 2,
+            "model": "cross",
+            "isAvailable": true
+        },
+        {
+            "id": 3,
+            "model": "merida",
+            "isAvailable": true
+        }
+    ]
+}
