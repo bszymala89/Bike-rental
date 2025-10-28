@@ -9,6 +9,9 @@ bikeRentalShop = bikeShop("bike rental",
                     )
 
 bikeRentalShop.bikelist.append(bicycle("merida"))
+bikeRentalShop.bikelist.append(bicycle("Defy Advanced 2"))
+bikeRentalShop.bikelist.append(bicycle("FastRoad AR Advanced 2"))
+bikeRentalShop.bikelist.append(bicycle("Talon 4"))
 
 
 print("[1] Customer")
