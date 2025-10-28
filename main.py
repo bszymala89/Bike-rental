@@ -18,38 +18,74 @@ bikeRentalShop.helmetList.append(helmet("Bell"))
 bikeRentalShop.helmetList.append(helmet("POC"))
 bikeRentalShop.helmetList.append(helmet("Trek"))
 
-print("[1] Customer")
-print("[2] Employee")
-option = int(input("Enter Option: "))
-if option == 1:
-    print("[1] Rent Bike")
-    print("[2] Return Bike")
+while True:
+    print("-----")
+    print("[1] Customer")
+    print("[2] Employee")
+    print("[3] Exit")
     option = int(input("Enter Option: "))
-
     if option == 1:
-        i = 0
-        for el in bikeRentalShop.bikelist:
-            i += 1
-            print("[" + str(i) + "] " + el.__str__())
-    elif option == 2:
-        customerId = int(input("Enter Customer Id: "))
+        print("[1] Rent Bike")
+        print("[2] Return Bike")
+        print("[3] Rent Helmet")
+        print("[4] Return Helmet")
+        print("[5] Return")
+        option = int(input("Enter Option: "))
+        if option == 1:
+            i = 0
+            for el in bikeRentalShop.bikelist:
+                i += 1
+                if el.isAvailable == False:
+                    continue
+                print("[" + str(i) + "] " + el.__str__())
+            bikeOption = int(input("Enter Bike Number or 0 for exit: "))
+            if bikeOption == 0:
+                continue
+            else:
+                bike = bikeRentalShop.bikelist[bikeOption - 1]
+                bike.isAvailable = False
+            continue
 
-elif option == 2:
-    print("[1] Save Bike List")
-    print("[2] Load Bike List")
-    print("[3] See Bike List")
-    option = int(input("Enter Option: "))
+        elif option == 2:
+            continue
+            customerId = int(input("Enter Customer Id: "))
+        elif option == 3:
+            i = 0
+            for el in bikeRentalShop.helmetList:
+                i += 1
+                print("[" + str(i) + "] " + el.__str__())
+                continue
+        elif option == 4:
+            pass
+        elif option == 5:
+            continue
 
-    if option == 1:
-        bikeRentalShop.saveBikeListStateToFile()
     elif option == 2:
-        bikeRentalShop.bikelist = bikeRentalShop.readBikeListStateFromFile()
-        i = 0
-        for el in bikeRentalShop.bikelist:
-            i += 1
-            print("[" + str(i) + "] " + str(el))
+        print("[1] Save Bike List")
+        print("[2] Load Bike List")
+        print("[3] See Bike List")
+        print("[4] Return")
+        option = int(input("Enter Option: "))
+
+        if option == 1:
+            bikeRentalShop.saveBikeListStateToFile()
+            continue
+        elif option == 2:
+            bikeRentalShop.bikelist = bikeRentalShop.readBikeListStateFromFile()
+            i = 0
+            for el in bikeRentalShop.bikelist:
+                i += 1
+                print("[" + str(i) + "] " + str(el))
+                continue
+        elif option == 3:
+            i = 0
+            for el in bikeRentalShop.bikelist:
+                i += 1
+                print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id))
+                continue
+        elif option == 4:
+            continue
     elif option == 3:
-        i = 0
-        for el in bikeRentalShop.bikelist:
-            i += 1
-            print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id))
+        break
+
+
