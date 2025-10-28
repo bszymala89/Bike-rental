@@ -13,6 +13,10 @@ bikeRentalShop.bikelist.append(bicycle("Defy Advanced 2"))
 bikeRentalShop.bikelist.append(bicycle("FastRoad AR Advanced 2"))
 bikeRentalShop.bikelist.append(bicycle("Talon 4"))
 
+bikeRentalShop.helmetList.append(helmet("Giro"))
+bikeRentalShop.helmetList.append(helmet("Bell"))
+bikeRentalShop.helmetList.append(helmet("POC"))
+bikeRentalShop.helmetList.append(helmet("Trek"))
 
 print("[1] Customer")
 print("[2] Employee")
