@@ -18,6 +18,20 @@ bikeRentalShop.helmetList.append(helmet("Bell"))
 bikeRentalShop.helmetList.append(helmet("POC"))
 bikeRentalShop.helmetList.append(helmet("Trek"))
 
+def loadData():
+    # data = bikeRentalShop.readBikeListStateFromFile()
+    # for d in data:
+    #     bikeRentalShop.bikelist.append(bicycle(d["model"], d["isAvailable"], d["id"]))
+    bikeRentalShop.bikelist = bikeRentalShop.readBikeListStateFromFile()
+
+    i = 0
+    for el in bikeRentalShop.bikelist:
+        i += 1
+        print("[" + str(i) + "] " + str(el.__str__()))
+        continue
+
+loadData()
+
 while True:
     print("-----")
     print("[1] Customer")
