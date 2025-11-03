@@ -7,15 +7,15 @@ class bikelist:
         self.bicycles = bicycles
 
 class bikeShop:
-    def __init__(self, name, bikeList, helmetList):
+    def __init__(self, name, bikeList, helmetList, rentalDataList):
         self.name = name
         self.bikelist = bikeList
         self.helmetList = helmetList
+        self.rentalDataList = rentalDataList
 
     def rentBike(customer, bike, date):
         rentaldata = rental(customer, bike, date)
         rentaldata.setBikeStatus(False)
-
 
     def returnBike(rentaldata):
         rentaldata.setBikeStatus(True)
