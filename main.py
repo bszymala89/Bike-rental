@@ -2,16 +2,18 @@ from models.bicycle import bicycle
 from models.bikeShop import bikeShop
 from models.customer import customer
 from models.helmet import helmet
+from models.rental import rental
 
 bikeRentalShop = bikeShop("bike rental",
+                    [],
                     [],
                     []
                     )
 
-bikeRentalShop.bikelist.append(bicycle("merida"))
-bikeRentalShop.bikelist.append(bicycle("Defy Advanced 2"))
-bikeRentalShop.bikelist.append(bicycle("FastRoad AR Advanced 2"))
-bikeRentalShop.bikelist.append(bicycle("Talon 4"))
+# bikeRentalShop.bikelist.append(bicycle("merida"))
+# bikeRentalShop.bikelist.append(bicycle("Defy Advanced 2"))
+# bikeRentalShop.bikelist.append(bicycle("FastRoad AR Advanced 2"))
+# bikeRentalShop.bikelist.append(bicycle("Talon 4"))
 
 bikeRentalShop.helmetList.append(helmet("Giro"))
 bikeRentalShop.helmetList.append(helmet("Bell"))
@@ -95,7 +97,13 @@ while True:
             i = 0
             for el in bikeRentalShop.bikelist:
                 i += 1
-                print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id))
+                if el.isAvailable == False:
+                    for e in bikeRentalShop.rentalDataList:
+                        if e.bike.model == el.model:
+                            print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id) + e.customer.__str__())
+                            break
+                else:
+                    print("[" + str(i) + "] " + el.__str__() + ", Available: " + str(el.isAvailable) + ", ID: " + str(el.id))
                 continue
         elif option == 4:
             continue
