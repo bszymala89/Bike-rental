@@ -58,13 +58,26 @@ while True:
             if bikeOption == 0:
                 continue
             else:
+                customerName = input("Enter Your Name: ")
                 bike = bikeRentalShop.bikelist[bikeOption - 1]
-                bike.isAvailable = False
+
+                rentalData = rental(customer(customerName), bike, 1)
+                rentalData.setBikeStatus(False)
+
+                bikeRentalShop.rentalDataList.append(rentalData)
+
+                print("You have succesfully rented a bike")
             continue
 
         elif option == 2:
-            continue
-            customerId = int(input("Enter Customer Id: "))
+            customerName = input("Enter Your Name: ")
+
+            for el in bikeRentalShop.rentalDataList:
+                if el.customer.name == customerName:
+                    el.setBikeStatus(True)
+                    print("You have successfully returned the bike")
+                    break
+
         elif option == 3:
             i = 0
             for el in bikeRentalShop.helmetList:
@@ -87,12 +100,7 @@ while True:
             bikeRentalShop.saveBikeListStateToFile()
             continue
         elif option == 2:
-            bikeRentalShop.bikelist = bikeRentalShop.readBikeListStateFromFile()
-            i = 0
-            for el in bikeRentalShop.bikelist:
-                i += 1
-                print("[" + str(i) + "] " + str(el))
-                continue
+            loadData()
         elif option == 3:
             i = 0
             for el in bikeRentalShop.bikelist:
@@ -108,6 +116,7 @@ while True:
         elif option == 4:
             continue
     elif option == 3:
+        bikeRentalShop.saveBikeListStateToFile()
         break
 
 
